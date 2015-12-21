@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas" width="400" height="400"
+        style="background-color:#333">
+</canvas>
+
+<script>
+
+
+var fps = 1;
+num = 0;
+
+
+
+    window.requestAnimFrame = (function(){
+        return  window.requestAnimationFrame       ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame    ||
+                function( callback ){
+                    window.setTimeout(callback, 1000);
+                };
+    })();
+
+    (function animloop(){
+        setTimeout(function() {
+            num ++;
+            requestAnimFrame(animloop);
+            render();
+        }, 1000 / fps);
+
+    })();
+
+
+
+
+
+
+    function render(){
+        console.log("test");
+        document.clear();
+        document.write(num + ' loops fets! <br/>');
+    }
+
+
+
+</script>
+
+</body>
+</html>
